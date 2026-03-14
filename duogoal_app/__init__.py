@@ -1,0 +1,1 @@
+"""DuoGoal Solver application package."""
