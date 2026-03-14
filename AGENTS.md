@@ -1,15 +1,15 @@
 # Repository Guidelines
 
 ## Estrutura do projeto e organizacao dos modulos
-O repositorio principal continua centrado no notebook `DuoGoal Solver.ipynb`, que concentra configuracao de entradas, conversao de taxa, simulacao, otimizacao e geracao de graficos.
-
-Existe tambem uma primeira versao em Streamlit desenvolvida em worktree separada na branch `feat/streamlit-spike`, com a seguinte estrutura:
+O repositorio agora possui duas frentes principais:
+- `DuoGoal Solver.ipynb`: referencia original em notebook para configuracao de entradas, conversao de taxa, simulacao, otimizacao e geracao de graficos.
+- aplicacao Streamlit integrada ao `main`, com a seguinte estrutura:
 - `app.py`: interface Streamlit
 - `duogoal_app/core.py`: logica financeira e otimizacao
 - `duogoal_app/charts.py`: graficos Plotly
 - `tests/test_core.py`: verificacoes automatizadas do solver
 
-Enquanto essa versao nao for integrada, trate o notebook como fonte principal e a worktree Streamlit como implementacao paralela para evolucao da interface.
+O notebook continua como referencia funcional de dominio, mas a interface Streamlit agora faz parte da estrutura oficial do repositorio.
 
 ## Comandos de build, teste e desenvolvimento
 Notebook principal:
@@ -22,7 +22,7 @@ Worktree Streamlit:
 - `pytest -q`: executa os testes do solver.
 - `pip install -r requirements.txt`: instala as dependencias da app.
 
-Se a versao Streamlit for integrada, atualize este arquivo para refletir a nova estrutura oficial do repositorio.
+Sempre que houver mudanca relevante na estrutura do projeto, no fluxo de desenvolvimento, nas ferramentas principais ou nos comandos oficiais de validacao, atualize este arquivo no mesmo ciclo da mudanca.
 
 ## Estilo de codigo e convencoes de nomenclatura
 Use indentacao de 4 espacos em Python.
@@ -62,3 +62,4 @@ As skills reaproveitaveis descobertas neste projeto ficam em `skills/`.
 Hoje o diretorio contem:
 - `skills/migrar-notebook-para-streamlit/`: checklist para extrair a logica do notebook para uma app Streamlit.
 - `skills/validar-paridade-financeira/`: roteiro para comparar resultados entre notebook e aplicacao.
+- `skills/atualizar-agents-md/`: regra operacional para revisar e atualizar o `AGENTS.md` sempre que houver mudanca relevante no projeto.
