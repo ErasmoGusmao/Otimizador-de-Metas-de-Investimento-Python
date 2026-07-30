@@ -63,3 +63,4 @@ Hoje o diretorio contem:
 - `skills/migrar-notebook-para-streamlit/`: checklist para extrair a logica do notebook para uma app Streamlit.
 - `skills/validar-paridade-financeira/`: roteiro para comparar resultados entre notebook e aplicacao.
 - `skills/atualizar-agents-md/`: regra operacional para revisar e atualizar o `AGENTS.md` sempre que houver mudanca relevante no projeto.
+- `skills/interacao-solver-ia/`: protocolo de perguntas e saida tabelada para simular o DuoGoal conversando com o agente IA, sem rodar a app Streamlit nem o notebook.
