@@ -113,10 +113,10 @@ with detalhes_tab:
     resumo_exibicao["Valor"] = resumo_exibicao["Valor"].apply(
         lambda valor: numero(valor) if isinstance(valor, (int, float)) and pd.notna(valor) else valor
     )
-    st.dataframe(resumo_exibicao, width="stretch", hide_index=True)
+    st.dataframe(resumo_exibicao, use_container_width=True, hide_index=True)
 
 with traj_tab:
-    st.dataframe(resultados.trajetoria, width="stretch", hide_index=True)
+    st.dataframe(resultados.trajetoria, use_container_width=True, hide_index=True)
 
 with grafico_tab:
     if mostrar_heatmap:
