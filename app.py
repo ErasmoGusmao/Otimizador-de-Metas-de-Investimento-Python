@@ -5,8 +5,8 @@ from datetime import datetime
 import pandas as pd
 import streamlit as st
 
+from duogoal_app import SolverInputs, inputs_padrao, inputs_to_dict, resolver_duas_metas
 from duogoal_app.charts import grafico_fronteira, grafico_heatmap, grafico_saldos
-from duogoal_app.core import SolverInputs, inputs_padrao, inputs_to_dict, resolver_duas_metas
 
 
 st.set_page_config(page_title="DuoGoal Solver", page_icon=":chart_with_upwards_trend:", layout="wide")

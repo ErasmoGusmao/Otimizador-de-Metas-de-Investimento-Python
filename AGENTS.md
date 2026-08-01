@@ -1,15 +1,21 @@
 # Repository Guidelines
 
 ## Estrutura do projeto e organizacao dos modulos
-O repositorio agora possui duas frentes principais:
-- `DuoGoal Solver.ipynb`: referencia original em notebook para configuracao de entradas, conversao de taxa, simulacao, otimizacao e geracao de graficos.
-- aplicacao Streamlit integrada ao `main`, com a seguinte estrutura:
-- `app.py`: interface Streamlit
-- `duogoal_app/core.py`: logica financeira e otimizacao
-- `duogoal_app/charts.py`: graficos Plotly
-- `tests/test_core.py`: verificacoes automatizadas do solver
+A fonte unica da logica e o pacote `duogoal_app`, dividido por responsabilidade:
+- `duogoal_app/models.py`: dataclasses `SolverInputs`/`SolverOutputs` e cenario padrao (`inputs_padrao`).
+- `duogoal_app/finance.py`: conversao de taxa, validacao de entradas e simulacao mes a mes com transferencia de aporte.
+- `duogoal_app/optimizer.py`: funcao objetivo, grid search, refino local, fronteira e `resolver_duas_metas`.
+- `duogoal_app/reporting.py`: tabela-resumo e datas previstas (`montar_resumo`).
+- `duogoal_app/charts.py`: graficos Plotly.
+- `duogoal_app/__init__.py`: re-exporta a API publica; consumidores importam sempre de `duogoal_app`, nunca de modulos internos.
 
-O notebook continua como referencia funcional de dominio, mas a interface Streamlit agora faz parte da estrutura oficial do repositorio.
+A direcao das dependencias e sempre num sentido so: `models -> finance -> reporting -> optimizer -> charts -> app`.
+
+Consumidores do pacote:
+- `app.py`: interface Streamlit (camada de apresentacao, sem logica financeira).
+- `DuoGoal Solver.ipynb`: documentacao executavel do dominio; apenas importa e demonstra o pacote, sem reimplementar logica.
+- `tests/test_finance.py` e `tests/test_optimizer.py`: verificacoes automatizadas, um arquivo por modulo.
+- skills locais e scripts ad-hoc (via `PYTHONPATH` apontando para o projeto).
 
 ## Comandos de build, teste e desenvolvimento
 Notebook principal:
@@ -54,8 +60,9 @@ Pull requests devem incluir:
 - capturas de tela quando a saida visual mudar.
 
 ## Cuidados com o notebook
+O notebook nao contem logica propria: toda celula importa do pacote. Se a tentacao for editar calculo nele, o lugar certo e o modulo correspondente em `duogoal_app/`.
 Limpe saidas desnecessarias antes do commit quando elas nao ajudarem na revisao.
-Evite renomear `DuoGoal Solver.ipynb` sem necessidade, porque ele continua sendo a referencia central do projeto.
+Evite renomear `DuoGoal Solver.ipynb` sem necessidade, porque ele continua sendo a porta de entrada didatica do projeto.
 
 ## Skills locais
 As skills reaproveitaveis descobertas neste projeto ficam em `skills/`.

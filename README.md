@@ -19,9 +19,13 @@ streamlit run app.py
 ## Estrutura
 
 - `app.py`: interface Streamlit
-- `duogoal_app/core.py`: logica financeira e otimizacao
+- `duogoal_app/models.py`: dataclasses e cenario padrao
+- `duogoal_app/finance.py`: taxa, validacao e simulacao
+- `duogoal_app/optimizer.py`: grid search, refino, fronteira e `resolver_duas_metas`
+- `duogoal_app/reporting.py`: resumo e datas previstas
 - `duogoal_app/charts.py`: graficos Plotly
-- `tests/test_core.py`: verificacoes basicas de consistencia
+- `DuoGoal Solver.ipynb`: documentacao executavel que importa o pacote
+- `tests/test_finance.py`, `tests/test_optimizer.py`: verificacoes basicas de consistencia
 
 ## Validacao
 

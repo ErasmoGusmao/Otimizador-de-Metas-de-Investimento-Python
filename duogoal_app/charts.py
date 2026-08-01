@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import plotly.graph_objects as go
 
-from duogoal_app.core import SolverOutputs
+from duogoal_app.models import SolverOutputs
 
 
 def grafico_saldos(resultados: SolverOutputs) -> go.Figure:

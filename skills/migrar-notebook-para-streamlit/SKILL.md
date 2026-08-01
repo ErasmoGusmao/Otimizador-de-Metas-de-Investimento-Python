@@ -9,8 +9,8 @@ Use esta skill quando o objetivo for transformar um notebook financeiro em uma a
 
 ## Checklist
 1. Identifique no notebook quais celulas sao entradas, quais sao funcoes e quais sao visualizacoes.
-2. Mova as funcoes puras para um modulo como `duogoal_app/core.py`.
-3. Coloque a geracao de graficos em um modulo separado, como `duogoal_app/charts.py`.
+2. Mova as funcoes puras para modulos do pacote por responsabilidade: `models.py` (dataclasses), `finance.py` (simulacao), `optimizer.py` (busca), `reporting.py` (resumo).
+3. Coloque a geracao de graficos em um modulo separado, como `duogoal_app/charts.py`, e re-exporte a API publica em `duogoal_app/__init__.py`.
 4. Crie um `dataclass` para centralizar as entradas do solver.
 5. Defina valores padrao iguais aos usados no notebook de referencia.
 6. Monte a interface Streamlit em `app.py` usando formulario lateral e metricas resumidas.
