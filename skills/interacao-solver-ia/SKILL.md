@@ -33,7 +33,7 @@ Confirmar taxa vigente e data, e apontar a proxima reuniao do Copom. A taxa rece
 Antes de rodar, exibir tabela curta com os inputs coletados para confirmacao visual do usuario.
 
 ## Fase 3 - Execucao
-Script ad-hoc em `TEMP/opencode/`, com `PYTHONPATH` apontando para o diretorio do projeto, importando da API publica (`from duogoal_app import SolverInputs, resolver_duas_metas`) e chamando `resolver_duas_metas(SolverInputs(...))`. Nao modificar codigo do projeto.
+Script ad-hoc em `simulacoes/` (subdiretorio do projeto, um arquivo por cenario, ex.: `simulacoes/simular_duogoal.py`), com `PYTHONPATH` apontando para o diretorio do projeto, importando da API publica (`from duogoal_app import SolverInputs, resolver_duas_metas`) e chamando `resolver_duas_metas(SolverInputs(...))`. Nao modificar codigo do projeto. Nunca gravar o script em diretorio temporario fora do projeto: ele fica versionado em `simulacoes/` como registro da simulacao.
 
 ## Fase 4 - Saida didatica
 Invocar a skill `resumo-visual-em-tabelas` e montar as secoes fixas:

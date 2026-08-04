@@ -15,7 +15,8 @@ Consumidores do pacote:
 - `app.py`: interface Streamlit (camada de apresentacao, sem logica financeira).
 - `DuoGoal Solver.ipynb`: documentacao executavel do dominio; apenas importa e demonstra o pacote, sem reimplementar logica.
 - `tests/test_finance.py` e `tests/test_optimizer.py`: verificacoes automatizadas, um arquivo por modulo.
-- skills locais e scripts ad-hoc (via `PYTHONPATH` apontando para o projeto).
+- skills locais (via `PYTHONPATH` apontando para o projeto).
+- `simulacoes/`: scripts ad-hoc de simulacao executados pelo agente IA, um arquivo por cenario; rodam com `PYTHONPATH` apontando para o projeto e ficam versionados como registro de cada simulacao.
 
 ## Comandos de build, teste e desenvolvimento
 Notebook principal:
